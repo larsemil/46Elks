@@ -10,22 +10,32 @@ namespace NotificationChannels\FourtySixElks;
 
 
 class FourtySixElksSMS extends FourtySixElksMedia implements FourtSixElksMediaInterface {
-	protected $endpoint = 'https://api.46elks.com';
+	protected $endpoint = 'https://api.46elks.com/a1/SMS';
+	public $type = 'SMS';
 
+	/**
+	 * FourtySixElksSMS constructor.
+	 */
 	public function __construct(){
+
 		return parent::__construct();
 	}
 
+	/**
+	 * @return $this
+	 */
 	public function send(){
 
 
-		$this->client->request('POST',$this->endpoint,[
+		$response = $this->client->request('POST',$this->endpoint,[
 			'form_params' => [
-				'from' => '',
+				'from' => $this->from,
 				'message' => $this->getContent(),
-				'to' => '',
-			]
+				'to' => $this->phone_number,
+			],
+
 		]);
 
+		return $this;
 	}
 }

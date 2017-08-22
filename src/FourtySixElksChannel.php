@@ -24,10 +24,7 @@ class FourtySixElksChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        //$response = [a call to the api of your notification send]
-
-//        if ($response->error) { // replace this by the code need to check for errors
-//            throw CouldNotSendNotification::serviceRespondedWithAnError($response);
-//        }
+        $media = $notification->to46Elks($notification);
+		$media->send();
     }
 }
