@@ -1,7 +1,7 @@
 {
-    "name": "laravel-notification-channels/46elks",
+    "name": "larsemil/46elks",
     "description": "Laravel notification channel package for 46Elks.",
-    "homepage": "https://github.com/laravel-notification-channels/46Elks",
+    "homepage": "https://github.com/larsemil/46Elks",
     "license": "MIT",
     "authors": [
         {
