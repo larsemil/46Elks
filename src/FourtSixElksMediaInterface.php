@@ -3,12 +3,15 @@
  * Created by PhpStorm.
  * User: larsemil
  * Date: 2017-08-22
- * Time: 10:54
+ * Time: 11:06
  */
 
 namespace NotificationChannels\FourtySixElks;
 
 
-class FourtySixElksEndpoint {
+interface FourtSixElksMediaInterface {
+
+	public function __construct();
+	public function send();
 
 }

@@ -53,6 +53,15 @@ You must install the service provider:
     NotificationChannels\FourtySixElks\FourtySixElksServiceProvider::class,
 ],
 ```
+
+and add the following to your config/services.php
+
+	'46elks' => [
+		'username' => env('46ELKS_USERNAME'),
+		'password' => env('46ELKS_PASSWORD'),
+	],
+	
+Also remember to update your .env with correct information
 ## Usage
 
 Some code examples, make it clear how to use the package
