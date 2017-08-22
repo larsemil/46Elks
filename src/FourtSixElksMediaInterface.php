@@ -9,9 +9,20 @@
 namespace NotificationChannels\FourtySixElks;
 
 
+/**
+ * Interface FourtSixElksMediaInterface
+ * @package NotificationChannels\FourtySixElks
+ */
 interface FourtSixElksMediaInterface {
 
+	/**
+	 * FourtSixElksMediaInterface constructor.
+	 */
 	public function __construct();
+
+	/**
+	 * @return mixed
+	 */
 	public function send();
 
 }

@@ -15,12 +15,15 @@ https://laravel.com/docs/master/notifications
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/46Elks/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/46Elks/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/46Elks.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/46Elks)
 
-This package makes it easy to send notifications using [46Elks](link to service) with Laravel 5.3.
+This package makes it easy to send notifications using [46Elks](https://www.46elks.com) with Laravel 5.3.
 
 
 
 
-This is where your description should go. Add a little code example so build can understand real quick how the package can be used. Try and limit it to a paragraph or two.
+46Elks has a whole bunch of phone oriented services. This package takes care of:
+* SMS
+
+With more endpoints to come. Feel free to contribute.  
 
 
 
@@ -40,11 +43,13 @@ This is where your description should go. Add a little code example so build can
 
 ## Installation
 
-Please also include the steps for any third-party service setup that's required for this package.
+```
+composer require dalnix/46elks
+```
 
 ### Setting up the 46Elks service
 
-You must install the service provider:
+You must add the service provider:
 
 ```
 // config/app.php
@@ -64,7 +69,35 @@ and add the following to your config/services.php
 Also remember to update your .env with correct information
 ## Usage
 
-Some code examples, make it clear how to use the package
+To use this channel simply create a notification that has the following content:
+```
+/**
+     * Get the notification's delivery channels.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function via($notifiable)
+    {
+        return [FourtySixElksChannel::class];
+    }
+
+    /**
+     * Get the mail representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return \Illuminate\Notifications\Messages\MailMessage
+     */
+    public function to46Elks($notifiable)
+    {
+        return (new FourtySixElksSMS())
+	        ->line('Testsms')
+	        ->line('Olle')
+	        ->to('+46762216234')
+	        ->from('Emil');
+    }
+```
+
 
 ### Available Message methods
 

@@ -7,9 +7,16 @@ use NotificationChannels\FourtySixElks\Events\MessageWasSent;
 use NotificationChannels\FourtySixElks\Events\SendingMessage;
 use Illuminate\Notifications\Notification;
 
+/**
+ * Class FourtySixElksChannel
+ * @package NotificationChannels\FourtySixElks
+ */
 class FourtySixElksChannel
 {
-    public function __construct()
+	/**
+	 * FourtySixElksChannel constructor.
+	 */
+	public function __construct()
     {
         // Initialisation code here
     }
