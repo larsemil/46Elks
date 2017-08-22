@@ -46,7 +46,7 @@ class FortySixElksMedia {
 	 * FortySixElksMedia constructor.
 	 */
 	public function __construct() {
-		$this->name     = config( 'services.46elks.username' );
+		$this->username     = config( 'services.46elks.username' );
 		$this->password = config( 'services.46elks.password' );
 
 		$this->client = new Client(
@@ -59,8 +59,10 @@ class FortySixElksMedia {
 					$this->password
 				]
 
+
 			]
 		);
+
 	}
 
 	/**

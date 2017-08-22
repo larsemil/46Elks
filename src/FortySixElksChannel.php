@@ -31,6 +31,7 @@ class FortySixElksChannel
      */
     public function send($notifiable, Notification $notification)
     {
+
         $media = $notification->to46Elks($notification);
 		$media->send();
     }
