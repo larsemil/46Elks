@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\FourtySixElks\Exceptions;
+namespace NotificationChannels\FortySixElks\Exceptions;
 
 class CouldNotSendNotification extends \Exception
 {

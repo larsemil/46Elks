@@ -6,14 +6,14 @@
  * Time: 11:06
  */
 
-namespace NotificationChannels\FourtySixElks;
+namespace NotificationChannels\FortySixElks;
 
 
 /**
  * Interface FourtSixElksMediaInterface
- * @package NotificationChannels\FourtySixElks
+ * @package NotificationChannels\FortySixElks
  */
-interface FourtSixElksMediaInterface {
+interface FortySixElksMediaInterface {
 
 	/**
 	 * FourtSixElksMediaInterface constructor.

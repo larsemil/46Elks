@@ -53,7 +53,7 @@ You must add the service provider:
 // config/app.php
 'providers' => [
     ...
-    NotificationChannels\FourtySixElks\FourtySixElksServiceProvider::class,
+    NotificationChannels\FortySixElks\FortySixElksServiceProvider::class,
 ],
 ```
 
@@ -77,7 +77,7 @@ To use this channel simply create a notification that has the following content:
      */
     public function via($notifiable)
     {
-        return [FourtySixElksChannel::class];
+        return [FortySixElksChannel::class];
     }
 
     /**
@@ -88,7 +88,7 @@ To use this channel simply create a notification that has the following content:
      */
     public function to46Elks($notifiable)
     {
-        return (new FourtySixElksSMS())
+        return (new FortySixElksSMS())
 	        ->line('Testsms')
 	        ->line('Olle')
 	        ->to('+46762216234')

@@ -6,15 +6,15 @@
  * Time: 10:47
  */
 
-namespace NotificationChannels\FourtySixElks;
+namespace NotificationChannels\FortySixElks;
 
 
-class FourtySixElksSMS extends FourtySixElksMedia implements FourtSixElksMediaInterface {
+class FortySixElksSMS extends FortySixElksMedia implements FortySixElksMediaInterface {
 	protected $endpoint = 'https://api.46elks.com/a1/SMS';
 	public $type = 'SMS';
 
 	/**
-	 * FourtySixElksSMS constructor.
+	 * FortySixElksSMS constructor.
 	 */
 	public function __construct(){
 

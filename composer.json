@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NotificationChannels\\FourtySixElks\\": "src"
+            "NotificationChannels\\FortySixElks\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NotificationChannels\\FourtySixElks\\Test\\": "tests"
+            "NotificationChannels\\FortySixElks\\Test\\": "tests"
         }
     },
     "scripts": {

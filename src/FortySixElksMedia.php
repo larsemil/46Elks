@@ -6,11 +6,11 @@
  * Time: 10:54
  */
 
-namespace NotificationChannels\FourtySixElks;
+namespace NotificationChannels\FortySixElks;
 
 use GuzzleHttp\Client;
 
-class FourtySixElksMedia {
+class FortySixElksMedia {
 
 	/**
 	 * @var string
@@ -43,7 +43,7 @@ class FourtySixElksMedia {
 	protected $password;
 
 	/**
-	 * FourtySixElksMedia constructor.
+	 * FortySixElksMedia constructor.
 	 */
 	public function __construct() {
 		$this->name     = config( 'services.46elks.username' );

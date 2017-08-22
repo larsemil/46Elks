@@ -1,10 +1,10 @@
 <?php
 
-namespace NotificationChannels\FourtySixElks;
+namespace NotificationChannels\FortySixElks;
 
 use Illuminate\Support\ServiceProvider;
 
-class FourtySixElksServiceProvider extends ServiceProvider
+class FortySixElksServiceProvider extends ServiceProvider
 {
 
 
