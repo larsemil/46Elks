@@ -32,11 +32,16 @@ class FortySixElksSMS extends FortySixElksMedia implements FortySixElksMediaInte
 				'from' => $this->from,
 				'message' => $this->getContent(),
 				'to' => $this->phone_number,
+				'flashsms' => $this->payload['flash'] ? 'yes' : 'no'
 			],
-
 
 		]);
 
 		return $this;
+	}
+
+
+	public function flash(){
+		$this->payload['flash'] = true;
 	}
 }
