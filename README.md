@@ -60,23 +60,13 @@ Also remember to update your .env with correct information
 
 To use this channel simply create a notification that has the following content:
 ```
-/**
-     * Get the notification's delivery channels.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
+
     public function via($notifiable)
     {
         return [FortySixElksChannel::class];
     }
 
-    /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
+ 
     public function to46Elks($notifiable)
     {
         return (new FortySixElksSMS())
