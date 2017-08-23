@@ -86,11 +86,19 @@ To use this channel simply create a notification that has the following content:
 	        ->from('Emil');
     }
 ```
-
-
+The FortySixElksSMS have the following methods, all chainable.
 ### Available Message methods
 
-A list of all available options
+
+``from($mixed)``. Accepts a string up to 11 characters or number. Sms will be sent with that name.
+
+``to($number)``. International phonenumber.
+
+``line($string)``. Every string in a line will be on its own row.
+
+``flash()``. Will set the messagetype to flash. Will not endup in sms inbox. See [This tweet](https://twitter.com/46elks/status/583183559420178432) to find out how it looks on an iphone.
+ 
+
 
 ## Changelog
 
