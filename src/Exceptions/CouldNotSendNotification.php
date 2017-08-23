@@ -4,8 +4,8 @@ namespace NotificationChannels\FortySixElks\Exceptions;
 
 class CouldNotSendNotification extends \Exception
 {
-    public static function serviceRespondedWithAnError($response)
+    public static function serviceRespondedWithAnError($message, $code)
     {
-        return new static("Descriptive error message.");
+        return new static("46Elks responded with an error:".$message." ".$code);
     }
 }

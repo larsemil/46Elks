@@ -6,6 +6,7 @@ use NotificationChannels\FortySixElks\Exceptions\CouldNotSendNotification;
 use NotificationChannels\FortySixElks\Events\MessageWasSent;
 use NotificationChannels\FortySixElks\Events\SendingMessage;
 use Illuminate\Notifications\Notification;
+use NotificationChannels\FortySixElks\Exceptions\CouldNotUseNotification;
 
 /**
  * Class FortySixElksChannel
@@ -31,8 +32,12 @@ class FortySixElksChannel
      */
     public function send($notifiable, Notification $notification)
     {
-
-        $media = $notification->to46Elks($notification);
-		$media->send();
+		if(method_exists($notification,'to46Elks')) {
+			$media = $notification->to46Elks( $notifiable );
+			$media->send();
+		}
+		else{
+			throw CouldNotUseNotification::missingMethod();
+		}
     }
 }
