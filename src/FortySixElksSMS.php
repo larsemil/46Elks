@@ -43,5 +43,6 @@ class FortySixElksSMS extends FortySixElksMedia implements FortySixElksMediaInte
 
 	public function flash(){
 		$this->payload['flash'] = true;
+		return $this;
 	}
 }
