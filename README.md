@@ -47,17 +47,8 @@ composer require dalnix/46elks
 
 ### Setting up the 46Elks service
 
-You must add the service provider:
 
-```
-// config/app.php
-'providers' => [
-    ...
-    NotificationChannels\FortySixElks\FortySixElksServiceProvider::class,
-],
-```
-
-and add the following to your config/services.php
+add the following to your config/services.php
 
 	'46elks' => [
 		'username' => env('46ELKS_USERNAME'),
