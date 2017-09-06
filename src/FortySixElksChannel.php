@@ -33,8 +33,9 @@ class FortySixElksChannel
     public function send($notifiable, Notification $notification)
     {
 		if(method_exists($notification,'to46Elks')) {
-			$media = $notification->to46Elks( $notifiable );
-			$media->send();
+			if($media = $notification->to46Elks( $notifiable )) {
+                $media->send();
+            }
 		}
 		else{
 			throw CouldNotUseNotification::missingMethod();
