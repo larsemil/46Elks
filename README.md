@@ -42,7 +42,7 @@ With more endpoints to come. Feel free to contribute.
 ## Installation
 
 ```
-composer require dalnix/46elks
+composer require larsemil/46elks
 ```
 
 ### Setting up the 46Elks service
