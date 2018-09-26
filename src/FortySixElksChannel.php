@@ -2,10 +2,9 @@
 
 namespace NotificationChannels\FortySixElks;
 
-use NotificationChannels\FortySixElks\Exceptions\CouldNotSendNotification;
-use NotificationChannels\FortySixElks\Events\MessageWasSent;
-use NotificationChannels\FortySixElks\Events\SendingMessage;
+use Illuminate\Events\Dispatcher;
 use Illuminate\Notifications\Notification;
+use Illuminate\Notifications\Events\NotificationFailed;
 use NotificationChannels\FortySixElks\Exceptions\CouldNotUseNotification;
 
 /**
@@ -14,12 +13,13 @@ use NotificationChannels\FortySixElks\Exceptions\CouldNotUseNotification;
  */
 class FortySixElksChannel
 {
+    protected $events;
 	/**
 	 * FortySixElksChannel constructor.
 	 */
-	public function __construct()
+	public function __construct(Dispatcher $events)
     {
-        // Initialisation code here
+        $this->events = $events;
     }
 
     /**
@@ -34,7 +34,11 @@ class FortySixElksChannel
     {
 		if(method_exists($notification,'to46Elks')) {
 			if($media = $notification->to46Elks( $notifiable )) {
-                $media->send();
+                try {
+                    $media->send();
+                } catch(\Exception $e){
+                    $this->events->fire(new NotificationFailed($notifiable, $notification, get_class($this), ['exception' => $e]));
+                }
             }
 		}
 		else{

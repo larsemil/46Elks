@@ -89,6 +89,20 @@ The FortySixElksSMS have the following methods, all chainable.
 ``flash()``. Will set the messagetype to flash. Will not endup in sms inbox. See [This tweet](https://twitter.com/46elks/status/583183559420178432) to find out how it looks on an iphone.
  
 
+### Error handling
+> How to handle notification send errors
+
+If for any reason there would be an error when sending a notification it will fire a 
+`Illuminate\Notifications\Events\NotificationFailed` event. You can then listen for that.
+
+Example:
+```
+Event::listen(NotificationFailed::class, function($event){
+    info('Error while sending sms');
+});
+```
+And the event has `$event->notifiable`, `$event->notification`, `$event->channel` and `$event->data`(where you have the exception at `$event->data['exception']`)
+
 
 ## Changelog
 
