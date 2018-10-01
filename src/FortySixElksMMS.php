@@ -13,13 +13,13 @@ class FortySixElksMMS extends FortySixElksMedia
 {
     protected $endpoint = 'https://api.46elks.com/a1/mms';
     public $type = 'MMS';
-    protected $image = null;
+
     public function __construct() {
         return parent::__construct();
     }
 
     public function image($url){
-        $this->image = $url;
+        $this->payload['image'] = $url;
     }
 
     /**
@@ -33,7 +33,7 @@ class FortySixElksMMS extends FortySixElksMedia
                     'from'     => $this->from,
                     'message'  => $this->getContent(),
                     'to'       => $this->phone_number,
-                    'image'    => $this->image
+                    'image'    => isset($this->payload['image']) ? $this->payload['image'] : null
                 ],
 
             ] );
