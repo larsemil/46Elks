@@ -9,6 +9,8 @@
 namespace NotificationChannels\FortySixElks;
 
 
+use NotificationChannels\FortySixElks\Exceptions\CouldNotSendNotification;
+
 class FortySixElksMMS extends FortySixElksMedia
 {
     protected $endpoint = 'https://api.46elks.com/a1/mms';
@@ -20,7 +22,9 @@ class FortySixElksMMS extends FortySixElksMedia
 
     public function image($url){
         $this->payload['image'] = $url;
+        return $this;
     }
+
 
     /**
      * @return $this
@@ -28,6 +32,7 @@ class FortySixElksMMS extends FortySixElksMedia
     public function send() {
 
         try {
+            echo 'doing request';
             $response = $this->client->request( 'POST', $this->endpoint, [
                 'form_params' => [
                     'from'     => $this->from,
@@ -37,13 +42,15 @@ class FortySixElksMMS extends FortySixElksMedia
                 ],
 
             ] );
+            echo 'did request';
+            var_dump($response);
         } catch ( GuzzleHttp\Exception\BadResponseException $e ) {
             $response = $e->getResponse();
-
+            var_dump('WHOOT');
             throw CouldNotSendNotification::serviceRespondedWithAnError($response->getBody()->getContents(), $response->getStatusCode());
 
         }
-
+        echo "hmm";
         return $this;
     }
 

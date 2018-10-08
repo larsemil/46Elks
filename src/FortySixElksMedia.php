@@ -9,6 +9,7 @@
 namespace NotificationChannels\FortySixElks;
 
 use GuzzleHttp\Client;
+use NotificationChannels\FortySixElks\Exceptions\CouldNotUseNotification;
 
 class FortySixElksMedia {
 
@@ -46,20 +47,25 @@ class FortySixElksMedia {
 	 * FortySixElksMedia constructor.
 	 */
 	public function __construct() {
+
 		$this->username     = config( 'services.46elks.username' );
 		$this->password = config( 'services.46elks.password' );
 
-		$this->client = new Client(
-			[
-				'headers' => [
-					'Content-Type' => 'application/x-www-urlencoded'
-				],
-				'auth'    => [
-					$this->username,
-					$this->password
-				]
-			]
-		);
+		if($this->username && $this->password) {
+            $this->client = new Client(
+                [
+                    'headers' => [
+                        'Content-Type' => 'application/x-www-urlencoded'
+                    ],
+                    'auth'    => [
+                        $this->username,
+                        $this->password
+                    ]
+                ]
+            );
+        } else {
+		    throw CouldNotUseNotification::missingConfig();
+        }
 	}
 
 	/**

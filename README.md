@@ -58,6 +58,7 @@ add the following to your config/services.php
 Also remember to update your .env with correct information
 ## Usage
 
+
 To use this channel simply create a notification that has the following content:
 ```
 
@@ -76,17 +77,31 @@ To use this channel simply create a notification that has the following content:
 	        ->from('Emil');
     }
 ```
+### Available mediums
+#### SMS
 The FortySixElksSMS have the following methods, all chainable.
-### Available Message methods
+### Available Message methods for sms
 
 
 ``from($mixed)``. Accepts a string up to 11 characters or number. Sms will be sent with that name.
 
-``to($number)``. International phonenumber.
+``to($number)``. International phone number.
 
 ``line($string)``. Every string in a line will be on its own row.
 
-``flash()``. Will set the messagetype to flash. Will not endup in sms inbox. See [This tweet](https://twitter.com/46elks/status/583183559420178432) to find out how it looks on an iphone.
+``flash()``. Will set the message type to flash. Will not endup in sms inbox. See [This tweet](https://twitter.com/46elks/status/583183559420178432) to find out how it looks on an iphone.
+#### MMS
+The FortySixElksSMS have the following methods, all chainable.
+### Available Message methods
+
+
+``from($mixed)``. Accepts 'noreply' as a string or a MMS activated number
+
+``to($number)``. International phone number.
+
+``line($string)``. Every string in a line will be on its own row.
+
+``image()``. URL to the image to send in mms.
  
 
 ### Error handling
