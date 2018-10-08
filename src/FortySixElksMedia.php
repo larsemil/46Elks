@@ -58,11 +58,8 @@ class FortySixElksMedia {
 					$this->username,
 					$this->password
 				]
-
-
 			]
 		);
-
 	}
 
 	/**
@@ -72,7 +69,6 @@ class FortySixElksMedia {
 	 */
 	public function line( $line ) {
 		$this->payload['lines'][] = $line;
-
 		return $this;
 	}
 
@@ -83,7 +79,6 @@ class FortySixElksMedia {
 	 */
 	public function subject( $subject ) {
 		$this->payload['subject'] = $subject;
-
 		return $this;
 	}
 
@@ -94,7 +89,6 @@ class FortySixElksMedia {
 	 */
 	public function to( $phone_number ) {
 		$this->phone_number = $phone_number;
-
 		return $this;
 	}
 
@@ -105,7 +99,6 @@ class FortySixElksMedia {
 	 */
 	public function from( $string ) {
 		$this->from = $string;
-
 		return $this;
 	}
 

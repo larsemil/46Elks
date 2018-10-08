@@ -19,7 +19,6 @@ class FortySixElksSMS extends FortySixElksMedia implements FortySixElksMediaInte
 	 * FortySixElksSMS constructor.
 	 */
 	public function __construct() {
-
 		return parent::__construct();
 	}
 
@@ -40,18 +39,14 @@ class FortySixElksSMS extends FortySixElksMedia implements FortySixElksMediaInte
 			] );
 		} catch ( GuzzleHttp\Exception\BadResponseException $e ) {
 			$response = $e->getResponse();
-
 			throw CouldNotSendNotification::serviceRespondedWithAnError($response->getBody()->getContents(), $response->getStatusCode());
-
 		}
-
 		return $this;
 	}
 
 
 	public function flash() {
 		$this->payload['flash'] = true;
-
 		return $this;
 	}
 }
