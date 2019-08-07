@@ -44,7 +44,7 @@ class FortySixElksMMS extends FortySixElksMedia
             ] );
             echo 'did request';
             var_dump($response);
-        } catch ( GuzzleHttp\Exception\BadResponseException $e ) {
+        } catch ( \GuzzleHttp\Exception\BadResponseException $e ) {
             $response = $e->getResponse();
             var_dump('WHOOT');
             throw CouldNotSendNotification::serviceRespondedWithAnError($response->getBody()->getContents(), $response->getStatusCode());

@@ -37,7 +37,7 @@ class FortySixElksSMS extends FortySixElksMedia implements FortySixElksMediaInte
 				],
 
 			] );
-		} catch ( GuzzleHttp\Exception\BadResponseException $e ) {
+		} catch ( \GuzzleHttp\Exception\BadResponseException $e ) {
 			$response = $e->getResponse();
 			throw CouldNotSendNotification::serviceRespondedWithAnError($response->getBody()->getContents(), $response->getStatusCode());
 		}
