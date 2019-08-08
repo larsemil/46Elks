@@ -37,7 +37,7 @@ class FortySixElksChannel
                 try {
                     $media->send();
                 } catch(\Exception $e){
-                    $this->events->fire(new NotificationFailed($notifiable, $notification, get_class($this), ['exception' => $e]));
+                    $this->events->dispatch(new NotificationFailed($notifiable, $notification, get_class($this), ['exception' => $e]));
                 }
             }
 		}
