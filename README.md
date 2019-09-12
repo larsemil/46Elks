@@ -49,13 +49,20 @@ composer require larsemil/46elks
 
 
 add the following to your config/services.php
-
+```
 	'46elks' => [
-		'username' => env('46ELKS_USERNAME'),
-		'password' => env('46ELKS_PASSWORD'),
+		'username' => env('FORTY_SIX_ELKS_USERNAME'),
+		'password' => env('FORTY_SIX_ELKS_PASSWORD'),
 	],
+```
 	
-Also remember to update your .env with correct information
+Also remember to update your .env with correct information:
+```
+FORTY_SIX_ELKS_USERNAME=
+FORTY_SIX_ELKS_PASSWORD=
+```
+You will find your username and password at https://46elks.se/account
+
 ## Usage
 
 
